@@ -1,0 +1,18 @@
+title 0.6: New Note SPA
+
+Browser->Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+Server--> Browser: HTTP 201 Created
+
+note over Browser:
+spa.js avoid default handling of form submission
+end note
+
+note over Browser:
+spa.js creates a new note and adds it to the notes list
+end note
+
+note over Browser:
+spa.js reloads the list
+end note
+
+Browser->Server: HTTP POST data.JSON
