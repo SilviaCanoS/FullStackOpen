@@ -106,7 +106,7 @@ root.render(<App />);*/
 
 
 //aqui comienza la quinta parte, estado complejo
-const History = ({all}) => { //renderizado condicional
+/*const History = ({all}) => { //renderizado condicional
   if(all.length === 0){
     return(
       <div>
@@ -156,5 +156,47 @@ const App = () => {
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);*/
+//aqui termina la quinta parte
+
+
+//aqui comienza la sexta parte, eventos
+const Button = ({action, name}) => {
+  return(
+    <div>
+      <button onClick={action}>{name}</button>
+    </div>
+  )
+};
+
+const Display = ({value}) => {
+  return(
+    <div>
+      <p>{value}</p>
+    </div>
+  )
+};
+
+const App = () => {
+  const [ value, setValue ] = useState(10);
+
+  const set = (num) => {
+    return () => {setValue(num)};
+  };
+  const hello = () => { //funcion que devuelve una funcion
+    return () => {console.log("Hello World")};
+  };
+
+  return (
+    <div>
+      <Display value={value}/>
+      <Button action={set(0)} name="Set to Zero"/>
+      <Button action={set(10)} name="Set to Ten"/>
+      <Button action={hello()} name="Hello"/>
+    </div>
+  )
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
-//aqui termina la tercera parte
+//aqui termina la sexta parte
