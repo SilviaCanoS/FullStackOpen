@@ -71,7 +71,7 @@ root.render(<App />);*/
 //aqui termina la tercera parte
 
 //aqui comienza la cuarta parte, boton
-const App = () => {
+/*const App = () => {
   const [ counter, setCounter ] = useState(0);
   const sumar = () => setCounter(counter + 1);
   const reset = () => setCounter(0);
@@ -99,6 +99,61 @@ const Boton = ({action, nombre}) => {
     </div>
   )
 };
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);*/
+//aqui termina la cuarta parte
+
+
+//aqui comienza la quinta parte, estado complejo
+const History = ({all}) => { //renderizado condicional
+  if(all.length === 0){
+    return(
+      <div>
+        <p>The app is used by pressing the buttons</p>
+      </div>
+    )
+  }
+
+  return(
+    <div>
+      <p>Button press history: {all.join(" ")}</p>
+    </div>
+  )
+};
+
+const Button = ({action, name}) => {
+  return(
+    <>
+      <button onClick={action}>{name}</button>
+    </>
+  )
+};
+
+const App = () => {
+  const [ left, setLeft ] = useState(0);
+  const [ right, setRight ] = useState(0);
+  const [ all, setAll] = useState([]);
+
+  const sumLeft = () => {
+    setAll(all.concat("L"));
+    setLeft(left + 1);
+  };
+  const sumRight = () => {
+    setAll(all.concat("R"));
+    setRight(right + 1)
+  };
+
+  return (
+    <div>
+      {left}
+      <Button action={sumLeft} name="Left"/>
+      <Button action={sumRight} name="Right"/>
+      {right}
+      <History all={all} />
+    </div>
+  )
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
